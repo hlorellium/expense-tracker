@@ -7,21 +7,22 @@ import { TransactionList } from './components/TransactionList';
 import {
     Wrapper,
     Container,
-    theme,
+    darkTheme,
     lightTheme,
     ThemeSwitchBtn,
 } from './styled-components';
 import { ThemeProvider } from 'styled-components';
 
+
 const App = () => {
-    const [currentTheme, setCurrentTheme] = useState(lightTheme);
+    const [currentTheme, setCurrentTheme] = useState(localStorage.getItem('currentTheme') || darkTheme);
     return (
         <ThemeProvider theme={currentTheme}>
             <Wrapper>
                 <ThemeSwitchBtn
                     onClick={() =>
                         setCurrentTheme((currentTheme) =>
-                            currentTheme === theme ? lightTheme : theme
+                            currentTheme === darkTheme ? lightTheme : darkTheme
                         )
                     }
                 />

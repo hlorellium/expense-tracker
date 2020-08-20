@@ -11,6 +11,7 @@ export const Wrapper = styled.div`
     h2 {
         font-weight: bold;
     }
+    transition: background-color 0.3s ease-out;
 `;
 
 export const Container = styled.div`
@@ -30,9 +31,12 @@ export const BudgetContainer = styled.div`
     border: 1px solid ${(props) => props.theme.text_color};
     padding: 10px;
     transition: 0.2s ease-in-out;
+    box-shadow: 3px 3px ${(props) => props.theme.box_shadow_color};
+
     :hover {
-        background-color: ${(props) => props.theme.bg_darker};
         transition: 0.2s ease-in-out;
+      background-color: ${(props) => props.theme.bg_second};
+
     }
     h4 {
         margin: 5px 20px 0 20px;
@@ -64,24 +68,59 @@ export const ThemeSwitchBtn = styled.div`
     border-radius: 100%;
     position: absolute;
     top: 15px;
-    right: 30px;
+    right: 20px;
+    transition: background-color 0.2s ease-out;
     cursor: pointer;
+
 `;
 
+export const TransactionListStyles = styled.div`
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+        margin: 0;
+    }
+    li {
+        display: flex;
+        padding: 10px;
+        border: 1px solid ${(props) => props.theme.text_color};
+        box-shadow: 3px 3px ${(props) => props.theme.box_shadow_color};
+    }
+      transition: 0.2s ease-in-out;
+    li:hover {
+        transition: 0.2s ease-in-out;
 
+      background-color: ${(props) => props.theme.bg_second};
+    }
+    .moneyText {
+        flex-grow: 1;
+    }
+    .deleteBtn {
+        outline: none;
+        border: none;
+    }
+`;
 
-export const theme = {
+export const darkTheme = {
     bg: '#7A7066',
-    bg_darker: '#756b62',
+    bg_second: '#857A6F',
     text_color: '#151314',
     income_text: '#151314',
     expense_text: '#151314',
+    box_shadow_color: '#151314',
 };
 
 export const lightTheme = {
     bg: '#F8F9FA',
-    bg_darker: '#e9ecef',
+    bg_second: '#fff',
     text_color: '#212529',
     income_text: '#1B998B',
     expense_text: '#E84855',
+    box_shadow_color: '#968896',
+
 };
