@@ -10,13 +10,15 @@ export const Wrapper = styled.div`
     color: ${(props) => props.theme.text_color};
     h2 {
         font-weight: bold;
+        margin: 20px 0 0 0;
     }
     transition: background-color 0.3s ease-out;
 `;
 
 export const Container = styled.div`
     margin: 30px auto;
-    width: 350px;
+    max-width: 1300px;
+    flex-direction: row;
     .balance h4 {
         margin: 0;
     }
@@ -31,12 +33,11 @@ export const BudgetContainer = styled.div`
     border: 1px solid ${(props) => props.theme.text_color};
     padding: 10px;
     transition: 0.2s ease-in-out;
-    box-shadow: 3px 3px ${(props) => props.theme.box_shadow_color};
+    box-shadow: 3px 3px ${(props) => props.theme.shadow_color};
+    background-color: ${(props) => props.theme.bg_second};
 
     :hover {
         transition: 0.2s ease-in-out;
-      background-color: ${(props) => props.theme.bg_second};
-
     }
     h4 {
         margin: 5px 20px 0 20px;
@@ -71,31 +72,53 @@ export const ThemeSwitchBtn = styled.div`
     right: 20px;
     transition: background-color 0.2s ease-out;
     cursor: pointer;
-
 `;
 
 export const TransactionListStyles = styled.div`
     display: flex;
     flex-direction: column;
-    margin-top: 20px;
+    transition: 0.2s ease-in-out;
     ul {
         list-style: none;
         display: flex;
         flex-direction: column;
         padding: 0;
         margin: 0;
+        max-height: 200px;
+        overflow: auto;
+    }
+    ul::-webkit-scrollbar {
+        width: 14px;
+        height: 18px;
+    }
+    ul::-webkit-scrollbar-thumb {
+        height: 6px;
+        border: 4px solid rgba(0, 0, 0, 0);
+        background-clip: padding-box;
+        -webkit-border-radius: 7px;
+        background-color: rgba(0, 0, 0, 0.15);
+        -webkit-box-shadow: inset -1px -1px 0px rgba(0, 0, 0, 0.05),
+            inset 1px 1px 0px rgba(0, 0, 0, 0.05);
+    }
+    ul::-webkit-scrollbar-button {
+        width: 0;
+        height: 0;
+        display: none;
+    }
+    ul::-webkit-scrollbar-corner {
+        background-color: transparent;
     }
     li {
         display: flex;
         padding: 10px;
         border: 1px solid ${(props) => props.theme.text_color};
-        box-shadow: 3px 3px ${(props) => props.theme.box_shadow_color};
+        box-shadow: 3px 3px ${(props) => props.theme.shadow_color};
+        align-items: center;
+        margin-bottom: 10px;
+        background-color: ${(props) => props.theme.bg_second};
     }
-      transition: 0.2s ease-in-out;
     li:hover {
         transition: 0.2s ease-in-out;
-
-      background-color: ${(props) => props.theme.bg_second};
     }
     .moneyText {
         flex-grow: 1;
@@ -103,6 +126,60 @@ export const TransactionListStyles = styled.div`
     .deleteBtn {
         outline: none;
         border: none;
+        background-color: ${(props) => props.theme.bg_second};
+        cursor: pointer;
+        margin: 5px;
+    }
+`;
+
+export const TransactionForm = styled.div`
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+    input[type='number'] {
+        -moz-appearance: textfield;
+    }
+    input {
+        background-color: ${(props) => props.theme.bg_second};
+        outline: none;
+        border: 1px solid ${(props) => props.theme.text_color};
+        padding: 5px;
+        font-size: 1.2rem;
+    }
+    input::placeholder {
+        color: ${(props) => props.theme.shadow_color};
+        opacity: 0.65;
+    }
+    label {
+        display: flex;
+        flex-direction: column;
+        font-size: 0.8rem;
+        font-weight: 700;
+        color: ${(props) => props.theme.shadow_color};
+    }
+    .explanation {
+        font-weight: 400;
+    }
+    div {
+        display: flex;
+        flex-direction: column;
+        margin: 10px 0;
+    }
+
+    button {
+        align-self: center;
+        margin-top: 10px;
+        outline: none;
+        padding: 5px 10px;
+        border: 1px solid ${(props) => props.theme.text_color};
+        background-color: ${(props) => props.theme.bg_second};
     }
 `;
 
@@ -112,15 +189,14 @@ export const darkTheme = {
     text_color: '#151314',
     income_text: '#151314',
     expense_text: '#151314',
-    box_shadow_color: '#151314',
+    shadow_color: '#151314',
 };
 
 export const lightTheme = {
-    bg: '#F8F9FA',
+    bg: '#E9ECEF',
     bg_second: '#fff',
     text_color: '#212529',
     income_text: '#1B998B',
     expense_text: '#E84855',
-    box_shadow_color: '#968896',
-
+    shadow_color: '#968896',
 };
