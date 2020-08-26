@@ -3,7 +3,7 @@ import { TransactionListStyles } from '../styled-components';
 import { GlobalContext } from '../context/GlobalState';
 
 export const TransactionList = () => {
-    const { transactions } = useContext(GlobalContext);
+    const { transactions, deleteTransaction } = useContext(GlobalContext);
     console.log(transactions);
     return (
         <TransactionListStyles>
@@ -13,7 +13,7 @@ export const TransactionList = () => {
                     <li className="minus" key={id}>
                         <span className="moneyText">{text}</span>
                         <span>{amount}</span>
-                        <button className="deleteBtn">X</button>
+                        <button className="deleteBtn" onClick={() => deleteTransaction(id)}>X</button>
                     </li>
                 ))}
             </ul>

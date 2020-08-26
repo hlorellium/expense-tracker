@@ -3,7 +3,6 @@ import styled from 'styled-components';
 export const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     min-height: 100vh;
     background-color: ${(props) => props.theme.bg};
@@ -11,14 +10,20 @@ export const Wrapper = styled.div`
     h2 {
         font-weight: bold;
         margin: 20px 0 0 0;
+        align-self: center;
     }
     transition: background-color 0.3s ease-out;
 `;
 
+export const Main = styled.div `
+display: flex;
+max-width: 1300px;
+flex-grow: 1;
+`
+
 export const Container = styled.div`
     margin: 30px auto;
-    max-width: 1300px;
-    flex-direction: row;
+    width: 350px;
     .balance h4 {
         margin: 0;
     }
@@ -72,20 +77,23 @@ export const ThemeSwitchBtn = styled.div`
     right: 20px;
     transition: background-color 0.2s ease-out;
     cursor: pointer;
+
 `;
 
 export const TransactionListStyles = styled.div`
     display: flex;
+    margin: 20px;
     flex-direction: column;
     transition: 0.2s ease-in-out;
+    max-height: 100%;
     ul {
         list-style: none;
         display: flex;
         flex-direction: column;
         padding: 0;
         margin: 0;
-        max-height: 200px;
         overflow: auto;
+        max-height: 65vh;
     }
     ul::-webkit-scrollbar {
         width: 14px;
@@ -136,7 +144,7 @@ export const TransactionForm = styled.div`
     margin-top: 20px;
     display: flex;
     flex-direction: column;
-    align-items: center;
+
 
     input::-webkit-outer-spin-button,
     input::-webkit-inner-spin-button {

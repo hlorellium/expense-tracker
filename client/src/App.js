@@ -12,6 +12,7 @@ import {
     darkTheme,
     lightTheme,
     ThemeSwitchBtn,
+    Main,
 } from './styled-components';
 import { ThemeProvider } from 'styled-components';
 
@@ -44,12 +45,18 @@ const App = () => {
                         }}
                     />
                     <Header />
-                    <Container>
-                        <Balance />
-                        <Budget />
-                        <TransactionList />
-                        <AddTransaction />
-                    </Container>
+                    <Main>
+                        <Container>
+                            <Balance />
+                            <Budget />
+                        </Container>
+                        <Container>
+                            <TransactionList />
+                        </Container>
+                        <Container>
+                            <AddTransaction />
+                        </Container>
+                    </Main>
                 </Wrapper>
             </GlobalProvider>
         </ThemeProvider>
