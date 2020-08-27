@@ -15,11 +15,14 @@ export const Wrapper = styled.div`
     transition: background-color 0.3s ease-out;
 `;
 
-export const Main = styled.div `
-display: flex;
-max-width: 1300px;
-flex-grow: 1;
-`
+export const Main = styled.div`
+    display: flex;
+    max-width: 1300px;
+    flex-grow: 1;
+    @media (max-width: 1100px) {
+        flex-direction: column;
+    }
+`;
 
 export const Container = styled.div`
     margin: 30px auto;
@@ -29,6 +32,9 @@ export const Container = styled.div`
     }
     .balance h1 {
         margin: 0 0 20px 0;
+    }
+    @media (max-width: 599px) {
+        width: 300px;
     }
 `;
 
@@ -77,7 +83,6 @@ export const ThemeSwitchBtn = styled.div`
     right: 20px;
     transition: background-color 0.2s ease-out;
     cursor: pointer;
-
 `;
 
 export const TransactionListStyles = styled.div`
@@ -86,6 +91,12 @@ export const TransactionListStyles = styled.div`
     flex-direction: column;
     transition: 0.2s ease-in-out;
     max-height: 100%;
+    .positive {
+        color: ${(props) => props.theme.income_text};
+    }
+    .negative {
+        color: ${(props) => props.theme.expense_text};
+    }
     ul {
         list-style: none;
         display: flex;
@@ -144,7 +155,6 @@ export const TransactionForm = styled.div`
     margin-top: 20px;
     display: flex;
     flex-direction: column;
-
 
     input::-webkit-outer-spin-button,
     input::-webkit-inner-spin-button {

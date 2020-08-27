@@ -1,19 +1,33 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { TransactionListStyles } from '../styled-components';
 import { GlobalContext } from '../context/GlobalState';
 
 export const TransactionList = () => {
-    const { transactions, deleteTransaction } = useContext(GlobalContext);
-    console.log(transactions);
+    const { transactions, deleteTransaction, getTransactions } = useContext(
+        GlobalContext
+    );
+
+    useEffect(() => {
+        getTransactions();
+        //eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
     return (
         <TransactionListStyles>
             <h3>History</h3>
             <ul className="transactionList">
                 {transactions.map(({ id, text, amount }) => (
-                    <li className="minus" key={id}>
+                    <li key={id}>
                         <span className="moneyText">{text}</span>
-                        <span>{amount}</span>
-                        <button className="deleteBtn" onClick={() => deleteTransaction(id)}>X</button>
+                        <span className={amount < 0 ? 'negative' : 'positive'}>
+                            {amount}
+                        </span>
+                        <button
+                            className="deleteBtn"
+                            onClick={() => deleteTransaction(id)}
+                        >
+                            X
+                        </button>
                     </li>
                 ))}
             </ul>
