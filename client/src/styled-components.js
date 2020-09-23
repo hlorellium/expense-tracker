@@ -74,7 +74,7 @@ export const BudgetContainer = styled.div`
 
 export const ThemeSwitchBtn = styled.div`
     background-color: ${(props) =>
-        props.theme.bg === '#7A7066' ? '#F8F9FA' : '#7A7066'};
+        props.theme.bg === '#363D44' ? '#F8F9FA' : '#363D44'};
     width: 20px;
     height: 20px;
     border-radius: 100%;
@@ -202,11 +202,11 @@ export const TransactionForm = styled.div`
 `;
 
 export const darkTheme = {
-    bg: '#7A7066',
-    bg_second: '#857A6F',
-    text_color: '#151314',
-    income_text: '#151314',
-    expense_text: '#151314',
+    bg: '#363D44',
+    bg_second: '#64707D',
+    text_color: '#fff',
+    income_text: '#B9F3EC',
+    expense_text: '#F6B6BC',
     shadow_color: '#151314',
 };
 
